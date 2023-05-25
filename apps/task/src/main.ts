@@ -36,7 +36,7 @@ async function bootstrap() {
   SwaggerModule.setup('swagger', app, document);
 
   await app.listen(process.env.PORT || 7001);
-  Logger.warn(`Server is running on port:`);
+  Logger.warn(`Task Service is running on port:`);
   Logger.warn(`${process.env.PORT || 7001}`);
 }
 bootstrap();

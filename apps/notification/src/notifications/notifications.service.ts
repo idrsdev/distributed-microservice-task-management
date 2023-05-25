@@ -21,7 +21,7 @@ export class NotificationService {
     private readonly configService: ConfigService,
   ) {
     this.tasksServiceUrl = this.configService.get('TASKS_MICROSERVICE_URL');
-    this.userServiceUrl = this.configService.get('USER_MICROSERVICE_URL');
+    this.userServiceUrl = this.configService.get('USERS_MICROSERVICE_URL');
   }
 
   async sendTaskAssignmentNotification(

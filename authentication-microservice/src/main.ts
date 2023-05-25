@@ -35,8 +35,8 @@ async function bootstrap() {
   const document = SwaggerModule.createDocument(app, config);
   SwaggerModule.setup('swagger', app, document);
 
-  await app.listen(process.env.PORT || 6999);
-  Logger.warn(`Server is running on port:`);
-  Logger.warn(`${process.env.PORT || 6999}`);
+  await app.listen(process.env.PORT || 7001);
+  Logger.warn(`Authentication Service is running on port:`);
+  Logger.warn(`${process.env.PORT || 7001}`);
 }
 bootstrap();

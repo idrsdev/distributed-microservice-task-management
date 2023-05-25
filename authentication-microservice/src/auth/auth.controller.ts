@@ -1,4 +1,12 @@
-import { Body, Controller, Get, Param, Post, Req } from '@nestjs/common';
+import {
+  Body,
+  Controller,
+  Get,
+  NotFoundException,
+  Param,
+  Post,
+  Req,
+} from '@nestjs/common';
 import { AuthService } from './auth.service';
 import { CreateUserDto } from './dto/createUser.dto';
 import { LoginUserDto } from './dto/loginUser.dto';
@@ -54,5 +62,24 @@ export class AuthController {
     @Req() req: Request,
   ): Promise<void> {
     await this.authService.resendActivationLink(email, req);
+  }
+
+  @ApiOperation({ summary: 'Get user information' })
+  @ApiResponse({
+    status: 200,
+    description: 'User information successfully retrieved',
+  })
+  @Get('users/:userId')
+  async getUser(@Param('userId') userId: string) {
+    const user = await this.authService.findUserById(userId);
+    if (!user) {
+      return null;
+    }
+
+    return {
+      _id: user._id,
+      isVerified: user.isVerified,
+      roles: user.roles,
+    };
   }
 }

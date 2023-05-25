@@ -28,5 +28,8 @@ async function bootstrap() {
 
   await app.startAllMicroservices();
   await app.listen(process.env.PORT || 7000);
+
+  Logger.warn(`Notification Service is running on port:`);
+  Logger.warn(`${process.env.PORT || 7000}`);
 }
 bootstrap();

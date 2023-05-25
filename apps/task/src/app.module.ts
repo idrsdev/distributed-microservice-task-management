@@ -1,6 +1,5 @@
 import { MiddlewareConsumer, Module, NestModule } from '@nestjs/common';
 import { AppController } from './app.controller';
-import { AppService } from './app.service';
 import { TasksModule } from './tasks/tasks.module';
 import { MongooseModule } from '@nestjs/mongoose';
 import { JwtMiddleware } from './jwt.middleware';
@@ -15,7 +14,6 @@ import { ConfigModule } from '@nestjs/config/dist';
     TasksModule,
   ],
   controllers: [AppController],
-  providers: [AppService],
 })
 export class AppModule implements NestModule {
   configure(consumer: MiddlewareConsumer) {
