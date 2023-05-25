@@ -35,7 +35,7 @@ async function bootstrap() {
 
   await app.listen(process.env.PORT || 7002);
 
-  Logger.warn(`Server is running on port:`);
+  Logger.warn(`User Service is running on port:`);
   Logger.warn(`${process.env.PORT || 7002}`);
 }
 
